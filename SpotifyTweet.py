@@ -28,8 +28,7 @@ while True:
 
         if current_track_id != None and current_album_id != None:
             api.update_status("Currently playing: " + '\n' + current_track['item']['album']['artists'][0]['name'] + " - " + current_track['item']['name'] + '\n' +  str(current_track['item']['external_urls']['spotify']) + '\n' + "#" + str(current_track['item']['album']['artists'][0]['name']).replace(" ",""))
-            current_album_id = current_track['item']['album']['id']
-            current_track_id = current_track['item']['id']
+       
         else:
             continue
     except (tweepy.TweepError, TypeError)as e:
