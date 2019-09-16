@@ -31,6 +31,15 @@ while True:
        
         else:
             continue
+    except spotipy.client.SpotifyException:
+        token = util.prompt_for_user_token(username,
+                                scope,
+                                client_id=CLIENT_ID,
+                                client_secret=CLIENT_SECRET,
+                                redirect_uri=redirect_uri)
+
+
+        spotify = spotipy.Spotify(auth=token)
     except (tweepy.TweepError, TypeError)as e:
         pass
 
