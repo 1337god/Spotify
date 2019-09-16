@@ -3,6 +3,7 @@ This is a Spotify Tweet Bot which gets your currently playing song from Spotify 
 
 # Installation
 Clone this repository or download the .zip file.
+
 Once it has downloaded you will need to add your own authentication keys and tokens to the SpotifyCredentials.py and TwitterCredentials.py files
 
 The authentication tokens and keys for Spotify can be found when you create an app on https://developer.spotify.com/
@@ -22,7 +23,6 @@ This will eliminate any attribute errors when getting the user playback.
 To run this program simply type in the terminal: python SpotifyTweet.py
 
 If you are python3 (which you should be) execute with: python3 SpotifyTweet.py
-
 
 ## Author
 
