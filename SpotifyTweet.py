@@ -21,7 +21,15 @@ try:
 
 	spotify = spotipy.Spotify(auth=token)
 except spotipy.client.SpotifyException:
-	main.refresh_token()
+	token = util.prompt_for_user_token(username,
+								scope,
+								client_id=CLIENT_ID,
+								client_secret=CLIENT_SECRET,
+								redirect_uri=redirect_uri)
+
+
+	spotify = spotipy.Spotify(auth=token)
+
 
 while True:
 	try:
