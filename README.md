@@ -12,13 +12,16 @@ The authetication tokens and keys for Twitter can be found when you create an ap
 You will need to import [Tweepy](https://www.tweepy.org/) and [Spotipy](https://spotipy.readthedocs.io/en/latest/#installation) to run this program.
 
 As there is a problem with the current build of spotipy you will also need to run this command to get the latest build:
+
 pip install git+https://github.com/plamere/spotipy.git --upgrade
 
-This givees you the most up to date version of spotipy which eliminates any Attribute errors
+This will eliminate any attribute errors when getting the user playback.
 
 # Running the program
 
 To run this program simply type in the terminal: python SpotifyTweet.py
+
+If you are python3 (which you should be) execute with: python3 SpotifyTweet.py
 
 
 ## Author
