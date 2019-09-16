@@ -11,24 +11,15 @@ auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 
 api = tweepy.API(auth)
-try:
-	token = util.prompt_for_user_token(username,
+
+token = util.prompt_for_user_token(username,
 								scope,
 								client_id=CLIENT_ID,
 								client_secret=CLIENT_SECRET,
 								redirect_uri=redirect_uri)
 
 
-	spotify = spotipy.Spotify(auth=token)
-except spotipy.client.SpotifyException:
-	token = util.prompt_for_user_token(username,
-								scope,
-								client_id=CLIENT_ID,
-								client_secret=CLIENT_SECRET,
-								redirect_uri=redirect_uri)
-
-
-	spotify = spotipy.Spotify(auth=token)
+spotify = spotipy.Spotify(auth=token)
 
 
 while True:
@@ -42,9 +33,17 @@ while True:
 			break
 		else:
 			continue
-	except (tweepy.TweepError, TypeError) as e:
-		pass
+	except spotipy.client.SpotifyException:
+		token = util.prompt_for_user_token(username,
+								scope,
+								client_id=CLIENT_ID,
+								client_secret=CLIENT_SECRET,
+								redirect_uri=redirect_uri)
 
+
+		spotify = spotipy.Spotify(auth=token)
+	except (tweepy.TweepError, TypeError)as e:
+		pass
 
 while True:
 	try:
@@ -57,7 +56,16 @@ while True:
 				current_track_id = current_track1['item']['id']
 		else:
 			continue
-	except (tweepy.TweepError, TypeError) as e:
+	except spotipy.client.SpotifyException:
+		token = util.prompt_for_user_token(username,
+								scope,
+								client_id=CLIENT_ID,
+								client_secret=CLIENT_SECRET,
+								redirect_uri=redirect_uri)
+
+
+		spotify = spotipy.Spotify(auth=token)
+	except (tweepy.TweepError, TypeError)as e:
 		pass
 
 
