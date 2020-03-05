@@ -35,11 +35,8 @@ while True:
 		spotify = spotipy.Spotify(auth=token)
 		continue
 	except (tweepy.TweepError, TypeError) as e:
-		if e.api_code == 187:
-			print("There's a duplicate message on Twitter.")
-		else:
-			raise error
-			pass
+		raise error
+		pass
 	except:
 		print("No Song is playing.")
 		time.sleep(30)
@@ -63,11 +60,8 @@ while True:
 		spotify = spotipy.Spotify(auth=token)
 		continue
 	except (tweepy.TweepError, TypeError) as e:
-		if error.api_code == 187:
-			print("There's a duplicate message on Twitter.")
-		else:
-			raise error
-			pass
+		raise error
+		pass
 	except:
 		print("No Song is playing.")
 		time.sleep(30)
