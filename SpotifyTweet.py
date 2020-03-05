@@ -35,7 +35,7 @@ while True:
 		spotify = spotipy.Spotify(auth=token)
 		continue
 	except (tweepy.TweepError, TypeError) as e:
-		if error.api_code == 187:
+		if e.api_code == 187:
 			print("There's a duplicate message on Twitter.")
 		else:
 			raise error
